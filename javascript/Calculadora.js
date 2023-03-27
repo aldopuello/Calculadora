@@ -1,11 +1,11 @@
 var valorVisor = 0;
 var numeroA;
 var numeroB;
-var operacao;
+var operaciones;
 var agora = new Date;
 
 
-function botao(dado) {
+function boton(dado) {
     var auxiliar = document.getElementById("visor").value; // auxiliar recebe o valor pressionado no visor
     document.getElementById("visor").value = auxiliar + dado; // visor recebe o valor de auxiliar e concatena com dado
 
@@ -17,53 +17,52 @@ function botao(dado) {
     var hora = agora.getHours();
     
     if(hora >= 0 && hora <= 12){
-      document.getElementById("historico").textContent = "Bom dia";
+      document.getElementById("historico").textContent = "Buenos dias";
     }
     if(hora >= 13 && hora <= 17){
-      document.getElementById("historico").textContent = "Boa tarde";
+      document.getElementById("historico").textContent = "Buenas tarde";
     }
     if(hora >= 18 && hora <= 23){
-      document.getElementById("historico").textContent = "Boa noite";
+      document.getElementById("historico").textContent = "Buenas noches";
     }
 }
 
 
-function btn_soma(caracter){
+function btn_suma(caracter){
     numeroA = valorVisor;
-    operacao = "+";
+    operaciones = "+";
     
-    limpar();
-    //document.getElementById("historico").innerHTML += operacao;
+    limpiar();
 }
 
-function btn_subtrai(caracter){
+function btn_resta(caracter){
   numeroA = valorVisor;
-  operacao = "-";
+  operaciones = "-";
   
-  limpar();
+  limpiar();
 }
 
-function btn_multiplica(caracter){
+function btn_multiplicar(caracter){
   numeroA = valorVisor;
-  operacao = "*";
+  operaciones = "*";
   
-  limpar();
+  limpiar();
 }
 
-function btn_divide(caracter){
+function btn_division(caracter){
   numeroA = valorVisor;
-  operacao = "/";
+  operaciones = "/";
   
-  limpar();
+  limpiar();
 }
 
 function reset() {
-    // limpar visor
+    // limpiar visor
     document.getElementById('visor').value = '';
     valorVisor = 0;
-    operacao = "";
+    operaciones = "";
 }
-function limpar(){
+function limpiar(){
     document.getElementById('visor').value = '';
     
 }
@@ -74,15 +73,9 @@ function btn_igual(){
 }
 
 function calcular() {
-    // faz o calculo, pega o resultado e colocar no visor
-    //document.getElementById('visor').value = eval(resultado);
-
-    //document.getElementById('visor').value = resultado;
-    //document.getElementById('visor').value = eval(valorVisor);
-
     var total = 0;
     var ultimoTotal = 0;
-      switch(operacao){
+      switch(operaciones){
         case "+":
           total = parseFloat(numeroA) + parseFloat(numeroB);
           break;
